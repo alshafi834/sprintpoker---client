@@ -28,7 +28,10 @@ const Message = ({ msg: { text, user }, name }) => {
           <p className="sentText pl-10">{user}</p>
         </div>
       )} */}
-      <div className="storyPoint">{text}</div>
+      <div className="storyPoint">
+        <span>{text}</span>
+        <p>{text}</p>
+      </div>
       <p>{name}</p>
     </div>
   );

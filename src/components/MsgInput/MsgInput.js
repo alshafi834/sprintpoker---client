@@ -3,9 +3,8 @@ import "./MsgInput.css";
 
 const MsgInput = ({ message, setMessage, sendMessage, startPoker }) => {
   const cards = [1, 2, 3, 5, 8, 13, 21, 34, 55];
-  console.log(cards[0]);
   return (
-    <div>
+    <div className="cardMain">
       {startPoker ? (
         <div className="cardContainer">
           {cards.map((card) => (
@@ -16,13 +15,19 @@ const MsgInput = ({ message, setMessage, sendMessage, startPoker }) => {
                 sendMessage(card);
               }}
             >
-              <span>
-                <p>{card}</p>
-              </span>
+              <span className="top">{card}</span>
+              <p className="middle">{card}</p>
             </div>
           ))}
         </div>
-      ) : null}
+      ) : (
+        <div className="cardContainer">
+          <div className="cards">
+            <span className="top">0</span>
+            <p className="middle">0</p>
+          </div>
+        </div>
+      )}
       {/* <form className="form">
       <input
         type="text"

@@ -1,12 +1,13 @@
 .messages {
-  padding: 5% 0;
+  padding: 2%;
   display: flex;
   overflow: auto;
   flex: auto;
   background-color: #2d2d2d;
+  flex-wrap: wrap;
 }
 
 .msgCards {
-  width: 120px;
-  height: 160px;
+  width: 140px;
+  height: 180px;
 }

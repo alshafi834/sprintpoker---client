@@ -19,12 +19,22 @@ const Chat = ({ location }) => {
   const [startPoker, setStartPoker] = useState(false);
   const socketEndPoint = "http://localhost:5000/";
 
+  const [isHost, setIsHost] = useState(false);
+
   const startGame = () => {
     console.log("starter btn");
     socket.emit("startGame");
   };
 
+  const resetGame = () => {
+    socket.emit("resetGame");
+  };
+
   useEffect(() => {
+    if (localStorage.getItem("host") === "true") {
+      setIsHost(true);
+    }
+
     const { name, room } = queryString.parse(location.search);
 
     socket = io(socketEndPoint);
@@ -53,6 +63,9 @@ const Chat = ({ location }) => {
       setStartPoker(true);
       console.log("game started");
     });
+    socket.on("gameResetting", () => {
+      setStartPoker(false);
+    });
   }, []);
 
   //function for sending msgs
@@ -66,7 +79,12 @@ const Chat = ({ location }) => {
 
   return (
     <div className="outerContainer">
-      <TextContainer users={users} startGame={startGame} />
+      <TextContainer
+        users={users}
+        startGame={startGame}
+        isHost={isHost}
+        resetGame={resetGame}
+      />
       <div className="container">
         <InfoBar room={roomName} />
 

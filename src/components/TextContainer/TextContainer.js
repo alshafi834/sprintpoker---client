@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./TextContainer.css";
 
-const TextContainer = ({ users, startGame }) => {
+const TextContainer = ({ users, startGame, isHost, resetGame }) => {
   return (
     <div className="textContainer">
-      {users ? (
-        <div>
-          <h2>Currently online:</h2>
+      <div>
+        <h2>Currently online:</h2>
+        {users ? (
           <div className="activeContainer">
-            <p className="online">
+            <div className="online">
               {users.map(({ name }) => (
                 <div key={name} className="activeItem">
                   <span className="onlineMember">
@@ -18,19 +18,29 @@ const TextContainer = ({ users, startGame }) => {
                   {name}
                 </div>
               ))}
-            </p>
+            </div>
           </div>
-          <button
-            onClick={() => {
-              startGame();
-            }}
-          >
-            Start Poker
-          </button>
-          <button>Flip Cards</button>
-          <button>Reset Poker</button>
-        </div>
-      ) : null}
+        ) : null}
+        {isHost ? (
+          <div>
+            <button
+              onClick={() => {
+                startGame();
+              }}
+            >
+              Start Poker
+            </button>
+            <button>Flip Cards</button>
+            <button
+              onClick={() => {
+                resetGame();
+              }}
+            >
+              Reset Poker
+            </button>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };

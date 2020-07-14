@@ -1,23 +1,35 @@
+.cardMain {
+  background-color: #222222;
+}
 .cardContainer {
   display: flex;
   margin: 20px 0 0 0;
 }
 
 .cards {
-  font-size: 24px;
   color: white;
-  font-weight: bold;
   width: 90px;
   height: 140px;
-  border-radius: 15px 15px 0 0;
+  border-radius: 8px 8px 0 0;
   background-color: #16d199;
-  border: 1px solid #18dfa3;
+  border: 3px solid #2eecb3;
   position: relative;
   animation: mymove 1s;
   animation-timing-function: ease-out;
   -webkit-box-shadow: -8px -1px 20px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -8px -1px 20px -4px rgba(0, 0, 0, 0.75);
   box-shadow: -8px -1px 20px -4px rgba(0, 0, 0, 0.75);
+}
+.cards span.top {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0 0 5px;
+}
+.cards p.middle {
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
 }
 .cards:hover {
   width: 120px;
