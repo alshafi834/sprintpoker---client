@@ -1,0 +1,68 @@
+.cardContainer {
+  display: flex;
+  margin: 20px 0 0 0;
+}
+
+.cards {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  width: 90px;
+  height: 140px;
+  border-radius: 15px 15px 0 0;
+  background-color: #16d199;
+  border: 1px solid #18dfa3;
+  position: relative;
+  animation: mymove 1s;
+  animation-timing-function: ease-out;
+  -webkit-box-shadow: -8px -1px 20px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -8px -1px 20px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: -8px -1px 20px -4px rgba(0, 0, 0, 0.75);
+}
+.cards:hover {
+  width: 120px;
+  height: 150px;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+@keyframes mymove {
+  from {
+    left: 300px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+/* .form {
+  display: flex;
+  border-top: 2px solid #323232;
+}
+
+.input {
+  border: none;
+  border-radius: 0;
+  padding: 2%;
+  width: 80%;
+  font-size: 1.2em;
+  background-color: #4e4e4e;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.sendButton {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #2d2e2f;
+  padding: 20px;
+  display: inline-block;
+  border: none;
+  width: 20%;
+}
+ */
