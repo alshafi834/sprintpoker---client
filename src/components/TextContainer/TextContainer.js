@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./TextContainer.css";
 
-const TextContainer = ({ users, startGame, isHost, resetGame }) => {
+const TextContainer = ({ users, startGame, isHost, resetGame, flipCards }) => {
   return (
     <div className="textContainer">
       <div>
@@ -24,19 +24,30 @@ const TextContainer = ({ users, startGame, isHost, resetGame }) => {
         {isHost ? (
           <div>
             <button
+              className="start"
               onClick={() => {
                 startGame();
               }}
             >
-              Start Poker
-            </button>
-            <button>Flip Cards</button>
+              Start Poker <i class="far fa-play-circle"></i>
+            </button>{" "}
+            <br></br>
             <button
+              className="flip"
+              onClick={() => {
+                flipCards();
+              }}
+            >
+              Flip Cards <i class="fas fa-exchange-alt"></i>
+            </button>{" "}
+            <br></br>
+            <button
+              className="reset"
               onClick={() => {
                 resetGame();
               }}
             >
-              Reset Poker
+              Reset Poker <i class="fas fa-undo-alt"></i>
             </button>
           </div>
         ) : null}

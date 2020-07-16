@@ -10,12 +10,27 @@
 .joinInnerContainer {
   width: 40%;
 }
+.joinInnerContainer img {
+  width: 120px;
+  height: 170px;
+}
+.joinInnerContainer h1 {
+  margin-top: 10px;
+  letter-spacing: 10px;
+}
+.joinInnerContainer .hostCheck {
+  margin-top: 10px;
+  color: white;
+}
 
 .joinInput {
   padding: 10px 15px;
   width: 90%;
   border-radius: 4px;
   border: 2px solid #dddddd;
+  font-size: 14px;
+  color: #202020;
+  font-weight: 600;
 }
 
 .heading {

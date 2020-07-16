@@ -1,5 +1,6 @@
 import React from "react";
 import "./MsgInput.css";
+import pokerCard from "../../images/card.png";
 
 const MsgInput = ({ message, setMessage, sendMessage, startPoker }) => {
   const cards = [1, 2, 3, 5, 8, 13, 21, 34, 55];
@@ -22,10 +23,7 @@ const MsgInput = ({ message, setMessage, sendMessage, startPoker }) => {
         </div>
       ) : (
         <div className="cardContainer">
-          <div className="cards">
-            <span className="top">0</span>
-            <p className="middle">0</p>
-          </div>
+          <img src={pokerCard} alt="card" />
         </div>
       )}
       {/* <form className="form">

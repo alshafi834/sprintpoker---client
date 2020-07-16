@@ -10,10 +10,34 @@
   padding: 15px 0 0 15px;
 }
 
+.textContainer button {
+  border-radius: 4px;
+  height: 30px;
+  font-weight: bold;
+  color: #313131;
+  margin-bottom: 7px;
+  border: none;
+  width: 150px;
+  cursor: pointer;
+}
+.textContainer button:hover {
+  opacity: 0.8;
+  color: white;
+}
+.textContainer button.start {
+  background: #1ce796;
+}
+.textContainer button.flip {
+  background: #44a4d0;
+}
+.textContainer button.reset {
+  background-color: #d63e58;
+}
+
 .activeContainer {
   display: flex;
   align-items: center;
-  margin-bottom: 50%;
+  margin-bottom: 30%;
 }
 
 .activeItem {

@@ -17,6 +17,7 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState("");
   const [startPoker, setStartPoker] = useState(false);
+  const [cardFlipped, setCardFlipped] = useState(false);
   const socketEndPoint = "http://localhost:5000/";
 
   const [isHost, setIsHost] = useState(false);
@@ -28,6 +29,10 @@ const Chat = ({ location }) => {
 
   const resetGame = () => {
     socket.emit("resetGame");
+  };
+
+  const flipCards = () => {
+    socket.emit("flip-cards");
   };
 
   useEffect(() => {
@@ -63,8 +68,13 @@ const Chat = ({ location }) => {
       setStartPoker(true);
       console.log("game started");
     });
+    socket.on("flippingCards", () => {
+      setCardFlipped(true);
+    });
+
     socket.on("gameResetting", () => {
       setStartPoker(false);
+      setMessages([]);
     });
   }, []);
 
@@ -72,6 +82,7 @@ const Chat = ({ location }) => {
   const sendMessage = (cardnmbr) => {
     if (cardnmbr) {
       socket.emit("sendMessage", cardnmbr, () => setMessage(""));
+      setStartPoker(false);
     }
   };
 
@@ -84,11 +95,16 @@ const Chat = ({ location }) => {
         startGame={startGame}
         isHost={isHost}
         resetGame={resetGame}
+        flipCards={flipCards}
       />
       <div className="container">
         <InfoBar room={roomName} />
 
-        <Messages messages={messages} userName={userName} />
+        <Messages
+          messages={messages}
+          userName={userName}
+          cardFlipped={cardFlipped}
+        />
 
         <MsgInput
           message={message}

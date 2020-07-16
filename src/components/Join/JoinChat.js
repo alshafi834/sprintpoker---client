@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import card from "../../images/card.png";
+
 import "./JoinChat.css";
 
 const JoinChat = () => {
@@ -24,7 +26,8 @@ const JoinChat = () => {
   return (
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
-        <h1 className="heading">Join Chat</h1>
+        <img src={card} alt="sprint poker" />
+        <h1 className="heading">SPRINT POKER</h1>
         <div>
           <input
             placeholder="Your name"
@@ -35,13 +38,13 @@ const JoinChat = () => {
         </div>
         <div>
           <input
-            placeholder="Chat room name"
+            placeholder="Room name"
             className="joinInput mt-20"
             type="text"
             onChange={(event) => setRoomName(event.target.value)}
           />
         </div>
-        <div>
+        <div className="hostCheck">
           <input
             type="checkbox"
             id="host"

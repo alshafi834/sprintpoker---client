@@ -1,8 +1,9 @@
 import React from "react";
 import "./Message.css";
+import pokerCard from "../../images/card.png";
 import ReactEmoji from "react-emoji";
 
-const Message = ({ msg: { text, user }, name }) => {
+const Message = ({ msg: { text, user }, name, cardFlipped }) => {
   let isSentByCurrentUser = false;
 
   const trimmedName = name.trim().toLowerCase();
@@ -28,11 +29,18 @@ const Message = ({ msg: { text, user }, name }) => {
           <p className="sentText pl-10">{user}</p>
         </div>
       )} */}
-      <div className="storyPoint">
-        <span>{text}</span>
-        <p>{text}</p>
-      </div>
-      <p>{name}</p>
+      {cardFlipped ? (
+        <div className="storyPoint">
+          <span>{text}</span>
+          <p>{text}</p>
+        </div>
+      ) : null}
+      {!cardFlipped ? (
+        <div className="storyPoint_card">
+          <img src={pokerCard} alt="card" />
+        </div>
+      ) : null}
+      <p>{user}</p>
     </div>
   );
 };
