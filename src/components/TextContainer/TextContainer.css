@@ -3,8 +3,7 @@
   flex-direction: column;
   /* margin-left: 100px; */
   border-right: 1px solid #2b2a2a;
-  color: white;
-  height: 100%;
+  color: #f1f1f1;
   width: 20%;
   justify-content: space-between;
   padding: 15px 0 0 15px;
@@ -19,6 +18,9 @@
   border: none;
   width: 150px;
   cursor: pointer;
+}
+.textContainer button:disabled {
+  opacity: 0.5;
 }
 .textContainer button:hover {
   opacity: 0.8;
@@ -60,6 +62,20 @@
 .online {
   font-size: 18px;
   margin: 10px 0;
+}
+
+.inviteMember {
+  padding: 35px 15px 35px 0;
+}
+.inviteMember h2 {
+  border-bottom: 2px solid white;
+}
+.inviteMember p.inviteUrl {
+  font-size: 14px;
+  background-color: rgb(59, 59, 59);
+  text-align: center;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 @media (min-width: 320px) and (max-width: 1200px) {

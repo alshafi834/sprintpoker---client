@@ -8,6 +8,10 @@ import MsgInput from "../MsgInput/MsgInput";
 import Messages from "../Messages/Messages";
 import TextContainer from "../TextContainer/TextContainer";
 
+import soundtrack from "../../images/sound.mp3";
+import cardstrack from "../../images/cards.mp3";
+import fliptrack from "../../images/magic.mp3";
+
 let socket;
 
 const Chat = ({ location }) => {
@@ -26,7 +30,6 @@ const Chat = ({ location }) => {
   const cards = [1, 2, 3, 5, 8, 13, 21, 34, 55];
 
   const startGame = () => {
-    console.log("starter btn");
     socket.emit("startGame");
   };
 
@@ -59,7 +62,9 @@ const Chat = ({ location }) => {
   }, [location.search, socketEndPoint]);
 
   useEffect(() => {
+    let cardSound = new Audio(cardstrack);
     socket.on("message", (message) => {
+      cardSound.play();
       setMessages((messages) => [...messages, message]);
     });
 
@@ -68,6 +73,8 @@ const Chat = ({ location }) => {
     });
 
     socket.on("gameStarting", () => {
+      let startSound = new Audio(soundtrack);
+      startSound.play();
       setStartPoker(true);
       setCardFlipped(false);
       setMessages([]);
@@ -75,18 +82,18 @@ const Chat = ({ location }) => {
     });
 
     socket.on("flippingCards", (point) => {
+      let magicSound = new Audio(fliptrack);
+      magicSound.play();
+      cardSound.play();
       setCardFlipped(true);
       let closest = cards.reduce((prev, curr) => {
         return Math.abs(curr - point) < Math.abs(prev - point) ? curr : prev;
       });
       setStoryPoint(closest);
-      /* for (let i = 0; i <= messages.length; i++) {
-        //setStoryPoint(storyPoint + messages[i].text);
-        //console.log(messages);
-      } */
     });
 
     socket.on("gameResetting", () => {
+      cardSound.play();
       setStartPoker(false);
       setCardFlipped(false);
       setMessages([]);
@@ -102,11 +109,10 @@ const Chat = ({ location }) => {
     }
   };
 
-  console.log(storyPoint);
-
   return (
     <div className="outerContainer">
       <TextContainer
+        room={roomName}
         users={users}
         startGame={startGame}
         isHost={isHost}

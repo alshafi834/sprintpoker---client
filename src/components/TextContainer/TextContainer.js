@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./TextContainer.css";
 
-const TextContainer = ({ users, startGame, isHost, resetGame, flipCards }) => {
+const TextContainer = ({
+  room,
+  users,
+  startGame,
+  isHost,
+  resetGame,
+  flipCards,
+}) => {
   return (
     <div className="textContainer">
       <div>
@@ -51,6 +58,13 @@ const TextContainer = ({ users, startGame, isHost, resetGame, flipCards }) => {
             </button>
           </div>
         ) : null}
+      </div>
+      <div className="inviteMember">
+        <h2>Invite</h2>
+        <p>Share the URL to join</p>
+        <p className="inviteUrl">
+          www.{window.location.hostname}/join?room={room}
+        </p>
       </div>
     </div>
   );
