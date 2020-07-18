@@ -6,7 +6,7 @@ const TextContainer = ({ users, startGame, isHost, resetGame, flipCards }) => {
   return (
     <div className="textContainer">
       <div>
-        <h2>Currently online:</h2>
+        <h2>Members Joined:</h2>
         {users ? (
           <div className="activeContainer">
             <div className="online">

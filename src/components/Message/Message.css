@@ -12,9 +12,9 @@
   height: 170px;
   border-radius: 4px;
   position: relative;
-  animation: mymove 0.8s;
+  animation: mymove 0.6s;
   animation-timing-function: ease-out;
-  transition: transform 0.8s;
+  transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 .storyPoint_card img:hover {

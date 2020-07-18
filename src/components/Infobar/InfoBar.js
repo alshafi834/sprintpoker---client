@@ -6,7 +6,7 @@ const InfoBar = ({ room }) => {
     <div className="infoBar">
       <div className="leftInnerContainer">
         <span className="onlineIcon">
-          <i className="far fa-dot-circle"></i>
+          <i className="fas fa-home"></i>
         </span>
         <h3>{room}</h3>
       </div>

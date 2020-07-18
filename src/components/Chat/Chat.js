@@ -18,9 +18,12 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState("");
   const [startPoker, setStartPoker] = useState(false);
   const [cardFlipped, setCardFlipped] = useState(false);
+  const [storyPoint, setStoryPoint] = useState(null);
   const socketEndPoint = "http://localhost:5000/";
 
   const [isHost, setIsHost] = useState(false);
+
+  const cards = [1, 2, 3, 5, 8, 13, 21, 34, 55];
 
   const startGame = () => {
     console.log("starter btn");
@@ -32,7 +35,7 @@ const Chat = ({ location }) => {
   };
 
   const flipCards = () => {
-    socket.emit("flip-cards");
+    socket.emit("flip-cards", messages, () => {});
   };
 
   useEffect(() => {
@@ -66,15 +69,28 @@ const Chat = ({ location }) => {
 
     socket.on("gameStarting", () => {
       setStartPoker(true);
-      console.log("game started");
+      setCardFlipped(false);
+      setMessages([]);
+      setStoryPoint(null);
     });
-    socket.on("flippingCards", () => {
+
+    socket.on("flippingCards", (point) => {
       setCardFlipped(true);
+      let closest = cards.reduce((prev, curr) => {
+        return Math.abs(curr - point) < Math.abs(prev - point) ? curr : prev;
+      });
+      setStoryPoint(closest);
+      /* for (let i = 0; i <= messages.length; i++) {
+        //setStoryPoint(storyPoint + messages[i].text);
+        //console.log(messages);
+      } */
     });
 
     socket.on("gameResetting", () => {
       setStartPoker(false);
+      setCardFlipped(false);
       setMessages([]);
+      setStoryPoint(null);
     });
   }, []);
 
@@ -86,7 +102,7 @@ const Chat = ({ location }) => {
     }
   };
 
-  console.log(message, messages);
+  console.log(storyPoint);
 
   return (
     <div className="outerContainer">
@@ -104,6 +120,7 @@ const Chat = ({ location }) => {
           messages={messages}
           userName={userName}
           cardFlipped={cardFlipped}
+          storyPoint={storyPoint}
         />
 
         <MsgInput
