@@ -56,7 +56,7 @@ const LeftBar = ({ room, users, startGame, isHost, resetGame, flipCards }) => {
         <h2>Invite</h2>
         <p>Share the URL to join</p>
         <p className="inviteUrl">
-          www.{window.location.hostname}/join?room={room}
+          https://{window.location.hostname}/join?room={room}
         </p>
       </div>
     </div>
