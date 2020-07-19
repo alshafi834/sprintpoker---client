@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import queryString from "query-string";
 
-import card from "../../images/card.png";
+import card from "../../files/card.png";
 
-import "./JoinChat.css";
+import "./JoinPoker.css";
 
-const JoinChat = ({ location }) => {
+const JoinPoker = ({ location }) => {
   const [userName, setUserName] = useState("");
   const [roomName, setRoomName] = useState("");
   const [host, setHost] = useState(false);
@@ -67,7 +67,7 @@ const JoinChat = ({ location }) => {
         ) : null}
         <Link
           onClick={handleSubmit}
-          to={`/chat?name=${userName}&room=${roomName}`}
+          to={`/poker?name=${userName}&room=${roomName}`}
         >
           <button className="button mt-20" type="submit">
             Join
@@ -78,4 +78,4 @@ const JoinChat = ({ location }) => {
   );
 };
 
-export default JoinChat;
+export default JoinPoker;

@@ -1,8 +1,8 @@
 import React from "react";
-import "./MsgInput.css";
-import pokerCard from "../../images/card.png";
+import "./PlayCard.css";
+import pokerCard from "../../files/card.png";
 
-const MsgInput = ({ message, setMessage, sendMessage, startPoker }) => {
+const PlayCard = ({ message, setMessage, sendMessage, startPoker }) => {
   const cards = [1, 2, 3, 5, 8, 13, 21, 34, 55];
   return (
     <div className="cardMain">
@@ -26,23 +26,8 @@ const MsgInput = ({ message, setMessage, sendMessage, startPoker }) => {
           <img src={pokerCard} alt="card" />
         </div>
       )}
-      {/* <form className="form">
-      <input
-        type="text"
-        className="input"
-        placeholder="Type your message..."
-        value={message}
-        onChange={(event) => setMessage(event.target.value)}
-        onKeyPress={(event) =>
-          event.key === "Enter" ? sendMessage(event) : null
-        }
-      />
-      <button className="sendButton" onClick={(event) => sendMessage(event)}>
-        Send
-      </button>
-    </form> */}
     </div>
   );
 };
 
-export default MsgInput;
+export default PlayCard;

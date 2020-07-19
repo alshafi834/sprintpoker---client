@@ -1,13 +1,13 @@
 import React from "react";
-import "./Messages.css";
-import Message from "../Message/Message";
+import "./Cards.css";
+import Card from "../Card/Card";
 
-const Messages = ({ messages, userName, cardFlipped, storyPoint }) => {
+const Cards = ({ messages, userName, cardFlipped, storyPoint }) => {
   return (
     <div className="messages">
       {messages.map((msg, index) => (
         <div key={index} className="msgCards">
-          <Message msg={msg} name={userName} cardFlipped={cardFlipped} />
+          <Card msg={msg} name={userName} cardFlipped={cardFlipped} />
         </div>
       ))}
       {storyPoint ? (
@@ -23,4 +23,4 @@ const Messages = ({ messages, userName, cardFlipped, storyPoint }) => {
   );
 };
 
-export default Messages;
+export default Cards;

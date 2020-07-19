@@ -1,15 +1,8 @@
 import React from "react";
 
-import "./TextContainer.css";
+import "./LeftBar.css";
 
-const TextContainer = ({
-  room,
-  users,
-  startGame,
-  isHost,
-  resetGame,
-  flipCards,
-}) => {
+const LeftBar = ({ room, users, startGame, isHost, resetGame, flipCards }) => {
   return (
     <div className="textContainer">
       <div>
@@ -70,4 +63,4 @@ const TextContainer = ({
   );
 };
 
-export default TextContainer;
+export default LeftBar;

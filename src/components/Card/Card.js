@@ -1,8 +1,8 @@
 import React from "react";
-import "./Message.css";
-import pokerCard from "../../images/card.png";
+import "./Card.css";
+import pokerCard from "../../files/card.png";
 
-const Message = ({ msg: { text, user }, name, cardFlipped }) => {
+const Card = ({ msg: { text, user }, name, cardFlipped }) => {
   return (
     <div className="storyCard">
       {cardFlipped ? (
@@ -21,4 +21,4 @@ const Message = ({ msg: { text, user }, name, cardFlipped }) => {
   );
 };
 
-export default Message;
+export default Card;

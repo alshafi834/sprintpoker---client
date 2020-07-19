@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
 
-import "./Chat.css";
+import "./Poker.css";
 import InfoBar from "../Infobar/InfoBar";
-import MsgInput from "../MsgInput/MsgInput";
-import Messages from "../Messages/Messages";
-import TextContainer from "../TextContainer/TextContainer";
+import PlayCard from "../MsgInput/PlayCard";
+import Cards from "../Cards/Cards";
+import LeftBar from "../LeftBar/LeftBar";
 
-import soundtrack from "../../images/sound.mp3";
-import cardstrack from "../../images/cards.mp3";
-import fliptrack from "../../images/magic.mp3";
+import soundtrack from "../../files/sound.mp3";
+import cardstrack from "../../files/cards.mp3";
+import fliptrack from "../../files/magic.mp3";
 
 let socket;
 
-const Chat = ({ location }) => {
+const Poker = ({ location }) => {
   const [userName, setUserName] = useState("");
   const [roomName, setRoomName] = useState("");
   const [message, setMessage] = useState("");
@@ -111,7 +111,7 @@ const Chat = ({ location }) => {
 
   return (
     <div className="outerContainer">
-      <TextContainer
+      <LeftBar
         room={roomName}
         users={users}
         startGame={startGame}
@@ -122,14 +122,14 @@ const Chat = ({ location }) => {
       <div className="container">
         <InfoBar room={roomName} />
 
-        <Messages
+        <Cards
           messages={messages}
           userName={userName}
           cardFlipped={cardFlipped}
           storyPoint={storyPoint}
         />
 
-        <MsgInput
+        <PlayCard
           message={message}
           setMessage={setMessage}
           sendMessage={sendMessage}
@@ -140,4 +140,4 @@ const Chat = ({ location }) => {
   );
 };
 
-export default Chat;
+export default Poker;
