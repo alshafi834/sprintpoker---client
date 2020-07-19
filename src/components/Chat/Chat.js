@@ -23,7 +23,7 @@ const Chat = ({ location }) => {
   const [startPoker, setStartPoker] = useState(false);
   const [cardFlipped, setCardFlipped] = useState(false);
   const [storyPoint, setStoryPoint] = useState(null);
-  const socketEndPoint = "http://localhost:5000/";
+  const socketEndPoint = process.env.REACT_APP_BACKEND_URL;
 
   const [isHost, setIsHost] = useState(false);
 
