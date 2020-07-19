@@ -4,7 +4,7 @@ import io from "socket.io-client";
 
 import "./Poker.css";
 import InfoBar from "../Infobar/InfoBar";
-import PlayCard from "../MsgInput/PlayCard";
+import PlayCard from "../PlayCard/PlayCard";
 import Cards from "../Cards/Cards";
 import LeftBar from "../LeftBar/LeftBar";
 
