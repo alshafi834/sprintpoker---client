@@ -20,7 +20,11 @@
   cursor: pointer;
 }
 .textContainer button:disabled {
-  opacity: 0.5;
+  opacity: 0.2;
+}
+.textContainer button:disabled:hover {
+  color: #313131;
+  opacity: 0.2;
 }
 .textContainer button:hover {
   opacity: 0.8;
@@ -34,6 +38,10 @@
 }
 .textContainer button.reset {
   background-color: #d63e58;
+}
+.textContainer button.copy {
+  background-color: #2e2e2e;
+  color: white;
 }
 
 .activeContainer {
@@ -76,6 +84,7 @@
   text-align: center;
   padding: 5px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 @media (min-width: 320px) and (max-width: 1200px) {

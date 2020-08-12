@@ -28,6 +28,14 @@ const JoinPoker = ({ location }) => {
     if (room) {
       setRoomName(room);
     }
+    const startServer = async () => {
+      const getServer = await fetch(
+        "https://sprint-poker-shafi.herokuapp.com/"
+      );
+      const response = await getServer.json();
+      console.log(response);
+    };
+    startServer();
   }, []);
 
   return (
