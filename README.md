@@ -2,7 +2,7 @@
 This is a simple web app/game for estimating sprint story points
 
 ## Try it live:
-https://sprint-poker.netlify.app/
+http://pokersprint.s3-website.eu-central-1.amazonaws.com/
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
