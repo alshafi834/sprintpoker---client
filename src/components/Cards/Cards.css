@@ -3,6 +3,7 @@
   display: flex;
   overflow: auto;
   flex: auto;
+  height: 67%;
   background-color: #2d2d2d;
   flex-wrap: wrap;
 }
