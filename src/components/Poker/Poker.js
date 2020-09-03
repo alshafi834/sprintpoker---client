@@ -90,12 +90,12 @@ const Poker = ({ location }) => {
         return Math.abs(curr - point) < Math.abs(prev - point) ? curr : prev;
       });
       setStoryPoint(closest);
-      const speech = new SpeechSynthesisUtterance();
+      /* const speech = new SpeechSynthesisUtterance();
       speech.text = closest;
       speech.volume = 3;
       speech.rate = 0.5;
       speech.pitch = 0.5;
-      window.speechSynthesis.speak(speech);
+      window.speechSynthesis.speak(speech); */
     });
 
     socket.on("gameResetting", () => {
