@@ -29,9 +29,7 @@ const JoinPoker = ({ location }) => {
       setRoomName(room);
     }
     const startServer = async () => {
-      const getServer = await fetch(
-        "https://sprint-poker-shafi.herokuapp.com/"
-      );
+      const getServer = await fetch("https://sprintpokerbackend.vercel.app/");
       const response = await getServer.json();
       console.log(response);
     };
