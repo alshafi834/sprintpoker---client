@@ -28,12 +28,12 @@ const JoinPoker = ({ location }) => {
     if (room) {
       setRoomName(room);
     }
-    const startServer = async () => {
+    /* const startServer = async () => {
       const getServer = await fetch("https://sprintpokerbackend.vercel.app/");
       const response = await getServer.json();
       console.log(response);
     };
-    startServer();
+    startServer(); */
   }, []);
 
   return (
