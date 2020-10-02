@@ -30,7 +30,7 @@ const JoinPoker = ({ location }) => {
     }
     const startServer = async () => {
       const getServer = await fetch(
-        "https://sprint-poker-shafi.herokuapp.com/"
+        "http://ec2-18-225-32-250.us-east-2.compute.amazonaws.com:5000/"
       );
       const response = await getServer.json();
       console.log(response);
