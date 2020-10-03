@@ -8,6 +8,14 @@
   flex-wrap: wrap;
 }
 
+.crackers {
+  width: 100%;
+}
+.crackers img {
+  margin: auto;
+  display: block;
+}
+
 .msgCards {
   width: 130px;
   height: 235px;

@@ -11,6 +11,7 @@ import LeftBar from "../LeftBar/LeftBar";
 import soundtrack from "../../files/sound.mp3";
 import cardstrack from "../../files/cards.mp3";
 import fliptrack from "../../files/magic.mp3";
+import clapSound from "../../files/clapp.mp3"
 
 let socket;
 
@@ -23,6 +24,7 @@ const Poker = ({ location }) => {
   const [startPoker, setStartPoker] = useState(false);
   const [cardFlipped, setCardFlipped] = useState(false);
   const [storyPoint, setStoryPoint] = useState(null);
+  const [cardMatched, setCardMatched] = useState(false);
   const socketEndPoint = process.env.REACT_APP_BACKEND_URL;
 
   const [isHost, setIsHost] = useState(false);
@@ -81,7 +83,7 @@ const Poker = ({ location }) => {
       setStoryPoint(null);
     });
 
-    socket.on("flippingCards", (point) => {
+    socket.on("flippingCards", ({point, isEqual}) => {
       let magicSound = new Audio(fliptrack);
       magicSound.play();
       cardSound.play();
@@ -90,6 +92,14 @@ const Poker = ({ location }) => {
         return Math.abs(curr - point) < Math.abs(prev - point) ? curr : prev;
       });
       setStoryPoint(closest);
+
+      setCardMatched(isEqual);
+      setTimeout(function(){ setCardMatched(false); }, 9000);
+      if(isEqual){
+        let clapping = new Audio(clapSound);
+        clapping.play();
+      }
+      
       /* const speech = new SpeechSynthesisUtterance();
       speech.text = closest;
       speech.volume = 3;
@@ -133,6 +143,7 @@ const Poker = ({ location }) => {
           userName={userName}
           cardFlipped={cardFlipped}
           storyPoint={storyPoint}
+          cardMatched={cardMatched}
         />
 
         <PlayCard

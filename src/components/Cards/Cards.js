@@ -1,8 +1,9 @@
 import React from "react";
 import "./Cards.css";
 import Card from "../Card/Card";
+import ClapImg from "../../files/crack.gif";
 
-const Cards = ({ messages, userName, cardFlipped, storyPoint }) => {
+const Cards = ({ messages, userName, cardFlipped, storyPoint, cardMatched }) => {
   return (
     <div className="messages">
       {messages.map((msg, index) => (
@@ -19,6 +20,9 @@ const Cards = ({ messages, userName, cardFlipped, storyPoint }) => {
           <h3>Story Point</h3>
         </div>
       ) : null}
+      {cardMatched ? <div className="crackers">
+        <img src={ClapImg} alt="Clapping"/>
+      </div> : null }
     </div>
   );
 };
