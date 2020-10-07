@@ -22,6 +22,7 @@ const Cards = ({ messages, userName, cardFlipped, storyPoint, cardMatched }) => 
       ) : null}
       {cardMatched ? <div className="crackers">
         <img src={ClapImg} alt="Clapping"/>
+        <h2>MATCHED!!!</h2>
       </div> : null }
     </div>
   );

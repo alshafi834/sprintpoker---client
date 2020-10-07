@@ -11,7 +11,7 @@ import LeftBar from "../LeftBar/LeftBar";
 import soundtrack from "../../files/sound.mp3";
 import cardstrack from "../../files/cards.mp3";
 import fliptrack from "../../files/magic.mp3";
-import clapSound from "../../files/clapp.mp3"
+//import clapSound from "../../files/clapp.mp3";
 
 let socket;
 
@@ -94,11 +94,11 @@ const Poker = ({ location }) => {
       setStoryPoint(closest);
 
       setCardMatched(isEqual);
-      setTimeout(function(){ setCardMatched(false); }, 9000);
-      if(isEqual){
+      setTimeout(function(){ setCardMatched(false); }, 5000);
+      /* if(isEqual){
         let clapping = new Audio(clapSound);
         clapping.play();
-      }
+      } */
       
       /* const speech = new SpeechSynthesisUtterance();
       speech.text = closest;
